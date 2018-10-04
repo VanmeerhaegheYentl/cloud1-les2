@@ -41,9 +41,21 @@ namespace Cloud1FunctionApp1
         }
 
         [FunctionName("fraction")]
-        public static async Task<IActionResult> fraction([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "fraction/{nr1}/{nr2}")]HttpRequest req, int nr1, int nr2, ILogger log)
+        public static async Task<IActionResult> fraction([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "fraction/{nr1}/{nr2}")]HttpRequest req, decimal nr1, decimal nr2, ILogger log)
         {
-            string result = nr1 + " / " + nr2 + " = " + (nr1 / nr2);
+            string result = "";
+
+            if (nr2 == 0)
+            {
+                result = "ERROR: not able to divide by 0";
+            }
+            else
+            {
+                decimal devision = (nr1 / nr2);
+
+                result = nr1 + " / " + nr2 + " = " + devision;
+            }
+
             return new OkObjectResult(result);
         }
 
