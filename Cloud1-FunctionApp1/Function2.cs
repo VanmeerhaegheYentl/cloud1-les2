@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace Cloud1_FunctionApp1
 {
-    public static class Function_2
+    public static class Function2
     {
         [FunctionName("History")]
         public static async Task<IActionResult> history([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)]HttpRequest req, ILogger log)
@@ -29,7 +29,7 @@ namespace Cloud1_FunctionApp1
 
                 if (key == "to")
                 {
-                    from = req.Query["to"];
+                    to = req.Query["to"];
                 }
             }
 

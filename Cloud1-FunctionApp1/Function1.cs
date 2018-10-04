@@ -33,8 +33,8 @@ namespace Cloud1FunctionApp1
             return new OkObjectResult(result);
         }
 
-        [FunctionName("sum")]
-        public static async Task<IActionResult> sum([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "som/{nr1}/{nr2}")]HttpRequest req, int nr1, int nr2, ILogger log)
+        [FunctionName("som")]
+        public static async Task<IActionResult> som([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "som/{nr1}/{nr2}")]HttpRequest req, int nr1, int nr2, ILogger log)
         {
             string result = nr1 + " + " + nr2 + " = " + (nr1 + nr2);
             return new OkObjectResult(result);
