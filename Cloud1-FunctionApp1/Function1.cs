@@ -53,6 +53,7 @@ namespace Cloud1FunctionApp1
                 }
                 decimal devision = (nr1 / nr2);
                 result = nr1 + " / " + nr2 + " = " + devision;
+                return new OkObjectResult(result);
             }
             catch (System.Exception ex)
             {
@@ -60,7 +61,6 @@ namespace Cloud1FunctionApp1
                 throw;
             }
 
-            return new OkObjectResult(result);
         }
 
     }
