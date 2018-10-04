@@ -34,39 +34,9 @@ namespace Cloud1FunctionApp1
         }
 
         [FunctionName("rekenmachine")]
-        public static async Task<IActionResult> rekenmachine1([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "som/{nr1}/{nr2}")]HttpRequest req, int nr1, int nr2, ILogger log)
+        public static async Task<IActionResult> rekenmachine([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "rekenmachine/som/{nr1}/{nr2}")]HttpRequest req, int nr1, int nr2, ILogger log)
         {
-            //log.LogInformation("C# HTTP trigger function processed a request.");
-
-            //string name = req.Query["name"];
-
-            //string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            //dynamic data = JsonConvert.DeserializeObject(requestBody);
-            //name = name ?? data?.name;
-
-            //return name != null
-            //    ? (ActionResult)new OkObjectResult($"Hello, {name}")
-            //    : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
-
             string result = nr1 + " + " + nr2 + " = " + (nr1 + nr2);
-            return new OkObjectResult(result);
-        }
-
-        public static async Task<IActionResult> rekenmachine2([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "delen/{nr1}/{nr2}")]HttpRequest req, int nr1, int nr2, ILogger log)
-        {
-            //log.LogInformation("C# HTTP trigger function processed a request.");
-
-            //string name = req.Query["name"];
-
-            //string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            //dynamic data = JsonConvert.DeserializeObject(requestBody);
-            //name = name ?? data?.name;
-
-            //return name != null
-            //    ? (ActionResult)new OkObjectResult($"Hello, {name}")
-            //    : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
-
-            string result = nr1 + " / " + nr2 + " = " + (nr1 / nr2);
             return new OkObjectResult(result);
         }
 
