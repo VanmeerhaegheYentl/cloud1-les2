@@ -40,7 +40,7 @@ namespace Cloud1FunctionApp1
             return new OkObjectResult(result);
         }
 
-        FunctionName("fraction")]
+        [FunctionName("fraction")]
         public static async Task<IActionResult> fraction([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "fraction/{nr1}/{nr2}")]HttpRequest req, int nr1, int nr2, ILogger log)
         {
             string result = nr1 + " / " + nr2 + " = " + (nr1 / nr2);
