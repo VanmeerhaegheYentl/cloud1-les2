@@ -45,15 +45,19 @@ namespace Cloud1FunctionApp1
         {
             string result = "";
 
-            if (nr2 == 0)
+            try
             {
-                result = "ERROR: not able to divide by 0";
-            }
-            else
-            {
+                if (nr1 == 0)
+                {
+                    return new BadRequestObjectResult("cannot divide by 0");
+                }
                 decimal devision = (nr1 / nr2);
-
                 result = nr1 + " / " + nr2 + " = " + devision;
+            }
+            catch (System.Exception ex)
+            {
+                return new StatusCodeResult(500);
+                throw;
             }
 
             return new OkObjectResult(result);
